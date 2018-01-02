@@ -53,8 +53,8 @@ $ curl -X POST "https://graph.facebook.com/v2.6/me/subscribed_apps?access_token=
 ### Getting the Hasura project
 
 ```
-$ hasura quickstart geekysrm/fb-messenger-weather-bot
-$ cd fb-messenger-weather-bot
+$ hasura quickstart utkarsh/fb-messenger-wiki-bot
+$ cd fb-messenger-wiki-bot
 # Add FACEBOOK_VERIFY_TOKEN to secrets. This is any pass phrase that you decide on, keep a note on what you are choosing as your verify token, we will be using it later while setting things up for your bot on the facebook developer page.
 $ hasura secrets update bot.fb_verify_token.key <YOUR-VERIFY-TOKEN>
 # Add FACEBOOK_PAGE_ACCESS_TOKEN to secrets
@@ -77,24 +77,24 @@ You will get an output like so:
 INFO Getting microservices...                     
 INFO Custom microservices: 
 USER MS NAME     STATUS      INTERNAL-URL       EXTERNAL-URL          
-bot              Running     bot.default:80     http://bot.foursquare68.hasura-app.io
+bot              Running     bot.default:80     http://bot.aerial82.hasura-app.io
 
 INFO Hasura microservices: 
 HASURA MS NAME     STATUS      INTERNAL-URL                  EXTERNAL-URL
 session-redis      Running     session-redis.hasura:6379     
 gateway            Running                                   
-notify             Running     notify.hasura:80              http://notify.foursquare68.hasura-app.io
+notify             Running     notify.hasura:80              http://notify.aerial82.hasura-app.io
 le-agent           Running                                   
-data               Running     data.hasura:80                http://data.foursquare68.hasura-app.io
+data               Running     data.hasura:80                http://data.aerial82.hasura-app.io
 platform-sync      Running                                   
 postgres           Running     postgres.hasura:5432          
 sshd               Running                                   
-auth               Running     auth.hasura:80                http://auth.foursquare68.hasura-app.io
-filestore          Running     filestore.hasura:80           http://filestore.foursquare68.hasura-app.io
+auth               Running     auth.hasura:80                http://auth.aerial82.hasura-app.io
+filestore          Running     filestore.hasura:80           http://filestore.aerial82.hasura-app.io
 
 ```
 
-Find the EXTERNAL-URL for the service named `bot`(in this case -> https://bot.foursquare68.hasura-app.io).
+Find the EXTERNAL-URL for the service named `bot`(in this case -> https://bot.aerial82.hasura-app.io).
 
 ### Enabling webhooks
 
@@ -102,7 +102,7 @@ In your fb app page, scroll down until you find a card name `Webhooks`. Click on
 
 ![Enable webhooks2](https://raw.githubusercontent.com/geekysrm/fb-messenger-weather-bot/master/assets/tutorial_5.png "Enable webhooks2")
 
-* The `callback URL` is the URL that the facebook servers will hit to verify as well as forward the messages sent to our bot. The nodejs app in this project uses the `/webhook` path as the `callback URL`. Making the `callback URL` https://bot.YOUR-CLUSTER-NAME.hasura-app.io/webhook (in this case -> https://bot.foursquare68.hasura-app.io/webhook/)
+* The `callback URL` is the URL that the facebook servers will hit to verify as well as forward the messages sent to our bot. The nodejs app in this project uses the `/webhook` path as the `callback URL`. Making the `callback URL` https://bot.YOUR-CLUSTER-NAME.hasura-app.io/webhook (in this case -> https://bot.aerial82.hasura-app.io/webhook/)
 * The `verify token`is the verify token that you set in your secrets above (in the command `$ hasura secrets update bot.fb_verify_token.key <YOUR-VERIFY-TOKEN>`)
 * After selecting all the `Subsciption Fields`. Submit and save.
 * You will also see another section under `Webhooks` that says `Select a page to subscribe your webhook to the page events`, ensure that you select the respective facebook page here.
