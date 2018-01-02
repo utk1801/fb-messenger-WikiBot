@@ -1,0 +1,6 @@
+description: A facebook messenger wikipedia bot deployed on Hasura.
+keywords: bot, facebook, wikipedia, nodejs, express, node, javascript, messenger,
+  wiki bot, chatbot, wiki messenger bot, fb bot, fb messenger bot
+media: {}
+name: fb-messenger-wiki-bot
+platformVersion: v0.15.3

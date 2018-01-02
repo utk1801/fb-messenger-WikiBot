@@ -1,0 +1,7 @@
+- alias: hasura
+  config:
+    configmap: controller-conf
+    namespace: aerial82-hasura
+  data: null
+  kubeContext: aerial82
+  name: aerial82
